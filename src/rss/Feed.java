@@ -23,6 +23,8 @@ public class Feed {
     
     public Feed(){
     this.messageList = new ArrayList<Message>();
+    //HEJ
+    
     }
     
     public Feed(String title,String link,String description,String language){
