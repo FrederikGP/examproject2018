@@ -1,0 +1,16 @@
+<beanio xmlns="http://www.beanio.org/2012/03">
+
+  <!-- 'format' identifies the type of stream -->
+  <stream name="contacts" format="xml"> 
+  
+    <!-- Detail records are bound to example.Contact -->
+    <record name="feed" class="rss.Feed" >
+        
+      <field name="title"  />
+      <field name="link" />
+      <field name="description" />
+      <field name="language" />
+    </record>
+    
+  </stream>
+</beanio>
