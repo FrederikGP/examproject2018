@@ -5,17 +5,14 @@
 
   <!-- 'format' identifies the type of stream -->
   <stream name="rss" format="xml" xmlName="rss">
-      <record name="rss" class="rss.FeedCollect">
-          <field name="" xmlType="attribute" xmlName=""/>
-      </record>
      
-     <record name="channel" class="rss.FeedCollect">
+     <record name="channel" class="model.rss.FeedCollect">
               <field name="title"/>
               <field name="link"/>
               <field name="description"/>
               <field name="language"/>
               
-          <segment name="messageList" class="rss.Message" collection ="list" xmlName="item" maxOccurs="unbounded">
+          <segment name="messageList" class="model.rss.Message" collection ="list" xmlName="item" maxOccurs="unbounded">
               <field name="title"/>
               <field name="description"/>
               <field name="pubDate"/>

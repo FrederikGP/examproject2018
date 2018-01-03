@@ -5,14 +5,7 @@
  */
 package Main;
 
-import Controller.FeedController;
-import DB.DBHandler;
 import View.MainFrame;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import rss.Feed;
-import rss.GetRSSFromNB;
 
 /**
  *

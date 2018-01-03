@@ -13,10 +13,10 @@ import java.sql.Connection;
 import java.util.Date;
 import org.beanio.BeanWriter;
 import org.beanio.StreamFactory;
-import rss.Feed;
-import rss.FeedCollect;
-import rss.GetRSSFromNB;
-import rss.Message;
+import model.rss.Feed;
+import model.rss.FeedCollect;
+import model.rss.GetRSSFromNB;
+import model.rss.Message;
 
 /**
  *
@@ -63,9 +63,10 @@ public class FeedController {
     
     public void createFeed(String title, String link, String description,String language){
         this.feed = new Feed();
-        feed.setTitle(title);
-        feed.setDescription(description);
-        feed.setLanguage(language);
+        this.feed.setTitle(title);
+        this.feed.setLink(link);
+        this.feed.setDescription(description);
+        this.feed.setLanguage(language);
     }
     
     public void resetFeed(){
