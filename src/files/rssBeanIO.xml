@@ -1,16 +1,32 @@
-<beanio xmlns="http://www.beanio.org/2012/03">
+<beanio xmlns="http://www.beanio.org/2012/03" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.beanio.org/2012/03 http://www.beanio.org/2012/03/mapping.xsd">
+    
 
   <!-- 'format' identifies the type of stream -->
-  <stream name="contacts" format="xml"> 
-  
-    <!-- Detail records are bound to example.Contact -->
-    <record name="feed" class="rss.Feed" >
+  <stream name="rss" format="xml" xmlName="rss">
+      <record name="rss" class="rss.FeedCollect">
+          <field name="" xmlType="attribute" xmlName=""/>
+      </record>
+     
+     <record name="channel" class="rss.FeedCollect">
+              <field name="title"/>
+              <field name="link"/>
+              <field name="description"/>
+              <field name="language"/>
+              
+          <segment name="messageList" class="rss.Message" collection ="list" xmlName="item" maxOccurs="unbounded">
+              <field name="title"/>
+              <field name="description"/>
+              <field name="pubDate"/>
+          </segment>
+         
+          
         
-      <field name="title"  />
-      <field name="link" />
-      <field name="description" />
-      <field name="language" />
-    </record>
+          
+      </record>
     
+
+   
   </stream>
 </beanio>

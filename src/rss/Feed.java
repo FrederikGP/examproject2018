@@ -18,7 +18,7 @@ public class Feed {
     private String description;
     private String language;
     
-    private ArrayList messageList;
+    public ArrayList messageList;
     
     
     public Feed(){
@@ -56,6 +56,10 @@ public class Feed {
        return length;
    }
    
+   
+   public ArrayList getMessageList(){
+       return this.messageList;
+   }
    
    public Message getMessage(int i){
        Message message =(Message) this.messageList.get(i);

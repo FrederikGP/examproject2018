@@ -14,6 +14,7 @@ import java.util.Date;
 import org.beanio.BeanWriter;
 import org.beanio.StreamFactory;
 import rss.Feed;
+import rss.FeedCollect;
 import rss.GetRSSFromNB;
 import rss.Message;
 
@@ -84,14 +85,19 @@ public class FeedController {
         this.exrDao.setFeed(this.feed);
         this.exrDao.insertOwnFeedToDB();
 
-        /*
+        
+        FeedCollect feedC = new FeedCollect();
         StreamFactory factory = StreamFactory.newInstance();
         factory.load("src/files/rssBeanIO.xml");
-        BeanWriter writer = factory.createWriter("contacs", new File("src/files/rss.xml"));
+        BeanWriter writer = factory.createWriter("rss", new File("src/files/rss.xml"));
         Object record = null;
         
-        record = this.feed;
-        writer.write(record);*/
+        
+        feedC.setupFeed(this.feed);
+        record = feedC;
+        writer.write(record);
+        writer.flush();
+        writer.close();
         resetFeed();   
     }
     
