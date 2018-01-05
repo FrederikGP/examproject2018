@@ -28,8 +28,6 @@ public class FileHandler {
         String content = "";
         int length = 0;
         
-       
-      //  String filename="C:\\Users\\Frederik\\Desktop\\ExamProject2018\\src\\files\\exchangerate.csv";
         String filename = "src/files/exchangerate.csv";
         Scanner textScan;
 

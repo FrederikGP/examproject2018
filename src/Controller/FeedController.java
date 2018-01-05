@@ -6,10 +6,8 @@
 package Controller;
 
 import handler.FileHandler;
-import DB.DBHandler;
 import dao.ExchangerateDAO;
 import java.io.File;
-import java.sql.Connection;
 import java.util.Date;
 import org.beanio.BeanWriter;
 import org.beanio.StreamFactory;
@@ -25,7 +23,6 @@ import model.rss.Message;
 public class FeedController {
     
     private Feed feed;
-    private Connection con;
     private GetRSSFromNB getRss;
     private ExchangerateDAO exrDao;
     private FileHandler fileH;
@@ -39,8 +36,11 @@ public class FeedController {
         }
     
     
-    
-    
+    /*
+    *This method sets the feed to be the exchangerate feed from National Banken,
+    *by using an instance of GetRSSFromNB and using the readFeed method. Then it 
+    *insert the feed and it´s messages into the database by using the ExchangerateDAO.
+    */
     public void insertExchangerateToDB()throws Exception{
         
         String[]urls = this.fileH.readExchangerateFile();
@@ -60,7 +60,7 @@ public class FeedController {
     }
     
     
-    
+    //Creates a new Feed based on the input from a GUI
     public void createFeed(String title, String link, String description,String language){
         this.feed = new Feed();
         this.feed.setTitle(title);
@@ -73,6 +73,11 @@ public class FeedController {
         this.feed = new Feed();
     }
     
+    
+    /*
+    This method is for creating new messages to the feed, which is created by the create feed
+    method. This method is for creating messages with the inputs from a GUI.
+    */
     public void addMessageToFeed(String title, String description){
         Message msg = new Message();
         msg.setTitle(title);
@@ -82,6 +87,10 @@ public class FeedController {
     }
     
     
+    /*
+    Inserts the created feed which is created by inputs from the GUI,
+    where it is inserted to the database by using the ExchangerateDAO.
+    */
     public void insertFeedToDB(){
         this.exrDao.setFeed(this.feed);
         this.exrDao.insertOwnFeedToDB();

@@ -25,7 +25,6 @@ public class GetRSSFromNB {
     static final String DESCRIPTION = "description";
     static final String CHANNEL = "channel";
     static final String LANGUAGE = "language";
-    static final String COPYRIGHT = "copyright";
     static final String LINK = "link";
     static final String ITEM = "item";
     static final String PUB_DATE = "pubDate";
@@ -48,21 +47,16 @@ public class GetRSSFromNB {
     public Feed readFeed() {
         try {
             boolean isFeedHeader = true;
-            // Set header values intial to the empty string
             String description = "";
             String title = "";
             String link = "";
             String language = "";
             String pubdate = "";
            
-         
-
-            // First create a new XMLInputFactory
+        
             XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-            // Setup a new eventReader
             InputStream in = read();
             XMLEventReader eventReader = inputFactory.createXMLEventReader(in);
-            // read the XML document
             while (eventReader.hasNext()) {
                 XMLEvent event = eventReader.nextEvent();
                 if (event.isStartElement()) {
@@ -105,7 +99,7 @@ public class GetRSSFromNB {
         } catch (XMLStreamException e) {
             throw new RuntimeException(e);
         }
-        return feed;
+        return this.feed;
     }
 
     private String getCharacterData(XMLEvent event, XMLEventReader eventReader)
@@ -124,10 +118,5 @@ public class GetRSSFromNB {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-    
-
-    
-    
-    
+    }   
 }
