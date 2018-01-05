@@ -1,0 +1,2 @@
+Use the MySQL script to initialize the database schema and tables, so the java program can manage the DB with the right tables and schema.
+Also remember to change the password in the DBHandler class by the password your database server uses.
